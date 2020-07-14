@@ -1,10 +1,13 @@
 # guessing_game
-Useful commands
+URL: https://doc.rust-lang.org/book/ch02-00-guessing-game-tutorial.html
+
+## Useful commands
 ```
 $ cargo new guessing_game
 $ cd guessing_game
 $ cargo run
 ```
+The file we are going to analyze is: `src\main.rs`
 ## Declare a library
 The `io` library comes from the standard library (which is known as std):
 ```rust
@@ -78,3 +81,32 @@ For now, all you need to know is that like variables, references are immutable b
 Hence, you need to write `&mut guess` rather than `&guess` to make it mutable.
 
 ## Handling Potential Failure with the `Result` Type
+We're still working on this line of code:
+```rust
+io::stdin()
+    .read_line(&mut guess)
+    .expect("Failed to read line");
+```
+Although we're now discussing a third line of text, it's still part of a single logical line
+of code. The next part is this method:
+```rust
+    .expect("Failed to read line");
+```
+As mentioned earlier, `read_line` puts what the user types into the string we're passing it,
+but it also return a value &mdash;in this case, an `io::Result`. Rust has a number of types named
+`Result` in its standard library: a generic `Result` as well as specific versions for modules,
+such as `io::Result`.
+
+The `Result` types are `enumerations`, often referred as *enums*. An enumeration is a type that
+can have a fixed set of values, and those values are called the enum's *variants*.
+
+For `Result`, the variant are `Ok` or `Err`.
+
+The `Ok` variant indicates the operation was successful, and inside `Ok` is the successfull
+generated value.
+
+The `Err` variant means the operation failed, and `Err` contains information about how or why
+the operation failed.
+
+The purpose of these `Result` types is to encode error-handling information. Values of the 
+`Result` type, like values of any type, have methods defined on them. 
