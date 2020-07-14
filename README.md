@@ -75,6 +75,6 @@ The `&` indicates that this argument is a reference, which gives you a way to le
 code access one piece of data without needing to copy that data into memory multiple times.
 
 For now, all you need to know is that like variables, references are immutable by default.
-Hence, you need to write &mut guess rather than &guess to make it mutable.
+Hence, you need to write `&mut guess` rather than `&guess` to make it mutable.
 
 ## Handling Potential Failure with the `Result` Type
