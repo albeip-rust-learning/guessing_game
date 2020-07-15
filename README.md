@@ -123,4 +123,25 @@ value is the number of bytes in what the user entered into standard input.
 
 If you don't call `expect`, the program will compile, but you'll get a warning.
 
- 
+The right way to suppress the warning is to actually write error handling, but because you just want to
+crash this program when a problem occurs, you can use `expect`.
+
+## Printing Values with println! Placeholders
+There’s only one more line to discuss in the code added so far, which is the following:
+```rust
+println!("You guessed: {}", guess);
+```
+This line prints the string we saved the user’s input in. The set of curly brackets, {}, is a placeholder:
+think of {} as little crab pincers that hold a value in place. You can print more than one value using
+curly brackets: the first set of curly brackets holds the first value listed after the format string,
+the second set holds the second value, and so on. Printing multiple values in one call to println! would
+look like this:
+```rust
+let x = 5;
+let y = 10;
+println!("x = {} and y = {}", x, y);
+```
+This code would print
+```commandline
+x = 5 and y = 10
+```
