@@ -5,8 +5,24 @@ URL: https://doc.rust-lang.org/book/ch02-00-guessing-game-tutorial.html
 ```
 $ cargo new guessing_game
 $ cd guessing_game
+$ cargo build
 $ cargo run
 ```
+
+## Using a Crate to Get More Functionality
+
+A crate is a collection of Rust source code files. The project we've been building is a 
+*binary crate*, which is an executable. 
+
+The `rand` crate is a `library crate`, which contains code intended to be used in other
+programs.
+
+Modify *Cargo.toml* file to include the `rand` crate as a dependency:
+```toml
+[dependencies]
+rand="0.7.3"
+```
+
 The file we are going to analyze is: `src\main.rs`
 ## Declare a library
 The `io` library comes from the standard library (which is known as std):
